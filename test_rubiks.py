@@ -34,12 +34,20 @@ class TestS8(unittest.TestCase):
     def test_power(self):
         a = S8('(1 2 3)')
 
-        self.assertEqual(a**2, S8('(1 3 2'))
+        self.assertEqual(a**2, S8('(1 3 2)'))
+        self.assertEqual(a**-1, S8('(1 3 2)'))
         self.assertEqual(a**3, S8())
+
+    def test_of(self):
+        a = S8('(1 2 3)')
+
+        self.assertEqual(a.of(1), 2)
+        self.assertEqual(a.of(2), 3)
+        self.assertEqual(a.of(3), 1)
+
+        for i in range(4, 9):
+            with self.subTest(i=i):
+                self.assertEqual(a.of(i), i)
 
     def test_str(self):
         pass
-
-    def test_of(self):
-        pass
-
