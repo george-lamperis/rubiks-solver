@@ -55,7 +55,9 @@ class S8:
         pass
 
     def of(self, n):
-        pass
+        for i, x in enumerate(self.mat[:, n-1].flat, start=1):
+            if x:
+                return i
 
 
 class S12:
