@@ -31,8 +31,11 @@ class TestS8(unittest.TestCase):
         self.assertEqual(a*c, S8('(1 3 2)'))
         self.assertEqual(b*c, S8('(1 2 3)'))
 
-    def test_powers(self):
-        pass
+    def test_power(self):
+        a = S8('(1 2 3)')
+
+        self.assertEqual(a**2, S8('(1 3 2'))
+        self.assertEqual(a**3, S8())
 
     def test_str(self):
         pass

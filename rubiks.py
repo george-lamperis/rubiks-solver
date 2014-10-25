@@ -10,6 +10,8 @@ import numpy
 class S8:
     """
     These permutations evaluate right to left, just like functions and matrices.
+
+    TODO operators assert matching size
     """
 
     def __init__(self, string=None):
@@ -45,7 +47,9 @@ class S8:
 
     def __pow__(self, n):
         # assert integer?
-        return self.mat ** n
+        result = S8()
+        result.mat = self.mat ** n
+        return result
 
     def __str__(self):
         pass
