@@ -6,7 +6,7 @@ from rubiks import S8
 class TestS8(unittest.TestCase):
 
     def test_init(self):
-        mat = numpy.matrix(numpy.identity(8))
+        mat = numpy.matrix(numpy.identity(8), numpy.dtype(int))
         mat[:, [0, 1]] = mat[:, [1, 0]]
         mat[:, [1, 2]] = mat[:, [2, 1]]
         mat[:, [2, 3]] = mat[:, [3, 2]]

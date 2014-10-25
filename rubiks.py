@@ -16,7 +16,7 @@ class S8:
 
     def __init__(self, string=None):
         """ If string=None, return identity permutation. """
-        self.mat = numpy.matrix(numpy.identity(8))
+        self.mat = numpy.matrix(numpy.identity(8), numpy.dtype(int))
 
         if string:
             cycles = string.replace('(', '').split(')')
@@ -29,7 +29,7 @@ class S8:
 
             # product of 2-cycles
             for i, j in swaps:
-                m = numpy.matrix(numpy.identity(8))
+                m = numpy.matrix(numpy.identity(8), numpy.dtype(int))
                 m[:, [i, j]] = m[:, [j, i]]
                 self.mat = self.mat * m
 
