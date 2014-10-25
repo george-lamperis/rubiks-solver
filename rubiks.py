@@ -35,7 +35,7 @@ class S8:
         return (self.mat == other.mat).all()
 
     def __ne__(self, other):
-        return not self.__eq__(self, other)
+        return not self.__eq__(other)
 
     def __mul__(self, other):
         # assert S8?
