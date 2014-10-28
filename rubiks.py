@@ -12,6 +12,9 @@ class S8:
     These permutations evaluate right to left, just like functions and matrices.
 
     TODO operators assert matching size
+         dtype = integer or bool maybe?
+         use matlib.identity instead
+         make sure we make deep copies
     """
 
     def __init__(self, string=None):
@@ -46,12 +49,12 @@ class S8:
         return product
 
     def __pow__(self, n):
-        # assert integer?
         result = S8()
         result.mat = self.mat ** n
         return result
 
     def __str__(self):
+        """ ordered alphabetically. """
         pass
 
     def of(self, n):
