@@ -55,7 +55,23 @@ class S8:
 
     def __str__(self):
         """ ordered alphabetically. """
-        pass
+        s = ''
+        domain = list(range(1, 9))
+        while domain:
+            start = domain.pop(0)
+            i = self.of(start)
+
+            if i != start:
+                s +='({}'.format(start)
+                while i != start:
+                    s += ' {}'.format(i)
+                    idx = domain.index(i)
+                    domain.pop(idx)
+                    i = self.of(i)
+
+                s += ')'
+
+        return s
 
     def of(self, n):
         for i, x in enumerate(self.mat[:, n-1].flat, start=1):

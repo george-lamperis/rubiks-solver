@@ -50,8 +50,11 @@ class TestS8(unittest.TestCase):
                 self.assertEqual(a.of(i), i)
 
     def test_str(self):
-        a = S8('(3 2 1)')
-        self.assertEqual(a.__str__(), '(1 3 2)')
+        # a = S8()
+        # self. assertEqual(a.__str__(), '(1)')
 
-        b = S8('(4 5 6)(1 2 3)')
-        self.assertEqual(a.__str__(), '(1 2 3)(4 5 6)')
+        b = S8('(3 2 1)')
+        self.assertEqual(b.__str__(), '(1 3 2)')
+
+        c = S8('(4 5 6)(1 2 3)')
+        self.assertEqual(c.__str__(), '(1 2 3)(4 5 6)')
