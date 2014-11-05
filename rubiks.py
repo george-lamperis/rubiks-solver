@@ -78,6 +78,12 @@ class S8:
             if x:
                 return i
 
+    def is_identity(self):
+        return self == S8()
+
+    def inverse(self):
+        return self ** -1
+
 
 class S12:
     corners =['ufl', 'urf', 'ubr', 'ulb', 'dbl', 'dlf', 'dfr', 'drb']

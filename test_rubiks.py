@@ -58,3 +58,19 @@ class TestS8(unittest.TestCase):
 
         c = S8('(4 5 6)(1 2 3)')
         self.assertEqual(c.__str__(), '(1 2 3)(4 5 6)')
+
+    def test_is_identity(self):
+        a = S8()
+        self.assertTrue(a.is_identity())
+
+        b = S8('(1 2)')
+        self.assertFalse(b.is_identity())
+
+    def test_inverse(self):
+        self.assertEqual(S8('(1 2 3)').inverse(), S8('(1 3 2)'))
+        self.assertEqual(S8('(1 2)').inverse(), S8('(1 2)'))
+        pass
+
+    def test_order(self):
+        pass
+
