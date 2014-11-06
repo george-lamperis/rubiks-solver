@@ -75,4 +75,11 @@ class TestPermutation(unittest.TestCase):
         pass
 
     def test_raises_type_error(self):
+        a = Permutation(2)
+        b = Permutation(3)
+
+        with self.assertRaises(TypeError):
+            a * b
+
+    def test_of_out_of_bounds(self):
         pass
