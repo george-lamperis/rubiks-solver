@@ -7,7 +7,7 @@ Solve with Petrus Method
 import numpy
 
 
-class S8:
+class Permutation:
     """
     These permutations evaluate right to left, just like functions and matrices.
 
@@ -43,13 +43,12 @@ class S8:
         return not self.__eq__(other)
 
     def __mul__(self, other):
-        # assert S8?
-        product = S8()
+        product = Permutation()
         product.mat = self.mat * other.mat
         return product
 
     def __pow__(self, n):
-        result = S8()
+        result = Permutation()
         result.mat = self.mat ** n
         return result
 
@@ -79,7 +78,7 @@ class S8:
                 return i
 
     def is_identity(self):
-        return self == S8()
+        return self == Permutation()
 
     def inverse(self):
         return self ** -1
