@@ -11,35 +11,35 @@ class TestPermutation(unittest.TestCase):
         mat[:, [1, 2]] = mat[:, [2, 1]]
         mat[:, [2, 3]] = mat[:, [3, 2]]
 
-        s = Permutation('(1 2 3)(3 4)')
+        s = Permutation(8, '(1 2 3)(3 4)')
         numpy.testing.assert_equal(s.mat, mat)
 
     def test_equals(self):
-        a = Permutation('(1 2 3)')
-        b = Permutation('(1 2)')
+        a = Permutation(8, '(1 2 3)')
+        b = Permutation(8, '(1 2)')
 
         self.assertEqual(a, a)
         self.assertEqual(b, b)
         self.assertNotEqual(a, b)
 
     def test_multiply(self):
-        a = Permutation('(1 2)')
-        b = Permutation('(2 3)')
-        c = Permutation('(1 3)')
+        a = Permutation(8, '(1 2)')
+        b = Permutation(8, '(2 3)')
+        c = Permutation(8, '(1 3)')
 
-        self.assertEqual(a*b, Permutation('(1 2 3)'))
-        self.assertEqual(a*c, Permutation('(1 3 2)'))
-        self.assertEqual(b*c, Permutation('(1 2 3)'))
+        self.assertEqual(a*b, Permutation(8, '(1 2 3)'))
+        self.assertEqual(a*c, Permutation(8, '(1 3 2)'))
+        self.assertEqual(b*c, Permutation(8, '(1 2 3)'))
 
     def test_power(self):
-        a = Permutation('(1 2 3)')
+        a = Permutation(8, '(1 2 3)')
 
-        self.assertEqual(a**2, Permutation('(1 3 2)'))
-        self.assertEqual(a**-1, Permutation('(1 3 2)'))
-        self.assertEqual(a**3, Permutation())
+        self.assertEqual(a**2, Permutation(8, '(1 3 2)'))
+        self.assertEqual(a**-1, Permutation(8, '(1 3 2)'))
+        self.assertEqual(a**3, Permutation(8))
 
     def test_of(self):
-        a = Permutation('(1 2 3)')
+        a = Permutation(8, '(1 2 3)')
 
         self.assertEqual(a.of(1), 2)
         self.assertEqual(a.of(2), 3)
@@ -50,25 +50,25 @@ class TestPermutation(unittest.TestCase):
                 self.assertEqual(a.of(i), i)
 
     def test_str(self):
-        # a = Permutation()
+        # a = Permutation(8)
         # self. assertEqual(a.__str__(), '(1)')
 
-        b = Permutation('(3 2 1)')
+        b = Permutation(8, '(3 2 1)')
         self.assertEqual(b.__str__(), '(1 3 2)')
 
-        c = Permutation('(4 5 6)(1 2 3)')
+        c = Permutation(8, '(4 5 6)(1 2 3)')
         self.assertEqual(c.__str__(), '(1 2 3)(4 5 6)')
 
     def test_is_identity(self):
-        a = Permutation()
+        a = Permutation(8)
         self.assertTrue(a.is_identity())
 
-        b = Permutation('(1 2)')
+        b = Permutation(8, '(1 2)')
         self.assertFalse(b.is_identity())
 
     def test_inverse(self):
-        self.assertEqual(Permutation('(1 2 3)').inverse(), Permutation('(1 3 2)'))
-        self.assertEqual(Permutation('(1 2)').inverse(), Permutation('(1 2)'))
+        self.assertEqual(Permutation(8, '(1 2 3)').inverse(), Permutation(8, '(1 3 2)'))
+        self.assertEqual(Permutation(8, '(1 2)').inverse(), Permutation(8, '(1 2)'))
         pass
 
     def test_order(self):

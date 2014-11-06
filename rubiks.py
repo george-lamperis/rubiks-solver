@@ -17,9 +17,10 @@ class Permutation:
          make sure we make deep copies
     """
 
-    def __init__(self, string=None):
+    def __init__(self, size, string=None):
         """ If string=None, return identity permutation. """
-        self.mat = numpy.matrix(numpy.identity(8), numpy.dtype(int))
+        self.size = size
+        self.mat = numpy.matrix(numpy.identity(self.size), numpy.dtype(int))
 
         if string:
             cycles = string.replace('(', '').split(')')
@@ -32,7 +33,7 @@ class Permutation:
 
             # product of 2-cycles
             for i, j in swaps:
-                m = numpy.matrix(numpy.identity(8), numpy.dtype(int))
+                m = numpy.matrix(numpy.identity(self.size), numpy.dtype(int))
                 m[:, [i, j]] = m[:, [j, i]]
                 self.mat = self.mat * m
 
@@ -43,19 +44,22 @@ class Permutation:
         return not self.__eq__(other)
 
     def __mul__(self, other):
-        product = Permutation()
+        if self.size != other.size:
+            raise TypeError('sizes not equal')
+
+        product = Permutation(self.size)
         product.mat = self.mat * other.mat
         return product
 
     def __pow__(self, n):
-        result = Permutation()
+        result = Permutation(self.size)
         result.mat = self.mat ** n
         return result
 
     def __str__(self):
         """ ordered alphabetically. """
         s = ''
-        domain = list(range(1, 9))
+        domain = list(range(1, self.size+1))
         while domain:
             start = domain.pop(0)
             i = self.of(start)
@@ -78,7 +82,7 @@ class Permutation:
                 return i
 
     def is_identity(self):
-        return self == Permutation()
+        return self == Permutation(self.size)
 
     def inverse(self):
         return self ** -1
