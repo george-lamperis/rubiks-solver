@@ -2,6 +2,7 @@ import unittest
 import numpy
 
 from rubiks import Permutation
+from rubiks import CornerOrientation
 
 class TestPermutation(unittest.TestCase):
 
@@ -83,3 +84,13 @@ class TestPermutation(unittest.TestCase):
 
     def test_of_out_of_bounds(self):
         pass
+
+class TestCornerOrientation(unittest.TestCase):
+
+    def test_init(self):
+        pass
+
+    def test_D(self):
+        actual = CornerOrientation((0, 0, 0, 0, 1, 2, 1, 0)).D()
+        expected = CornerOrientation((0, 0, 0, 0, 0, 1, 2, 1))
+        self.assertEqual(actual, expected)

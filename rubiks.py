@@ -1,9 +1,3 @@
-"""
-TODO: Rename Permutation. Sn(n, string)?
-
-Solve with Petrus Method
-"""
-
 import numpy
 
 
@@ -89,15 +83,32 @@ class Permutation:
 
 class CornerOrientation():
 
-    def __init__(x=None):
+    def __init__(self, x=None):
         """ x should be an 8-tuple with elements in Z/3. """
         if x:
             self.x = x
         else:
             self.x = (0, 0, 0, 0, 0, 0, 0, 0)
 
+    def __eq__(self, other):
+        return self.x == other.x
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def _manipulate(self, lst):
+        """ (position, add) """
+        l = []
+        for i, addend in lst:
+           l.append((self.x[i-1] + addend) % 3)
+
+        return tuple(l)
+
     def D(self):
-        pass
+        # (x1 , x2, x3, x4, x8, x5, x6  x7)
+        ops = [(1, 0), (2, 0), (3, 0), (4, 0), (8, 0), (5, 0), (6, 0), (7, 0)]
+        t = self._manipulate(ops)
+        return CornerOrientation(t)
 
     def U(self):
         pass
@@ -142,6 +153,7 @@ class EdgeOrientation():
         pass
 
 class State:
+    # How will we represent the rotation of the cube? (Colors)
 
     def __init__(self):
         pass
