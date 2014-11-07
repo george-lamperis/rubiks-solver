@@ -31,9 +31,15 @@ class Permutation:
                 self.mat = self.mat * m
 
     def __eq__(self, other):
+        if self.size != other.size:
+            raise TypeError('sizes not equal')
+
         return (self.mat == other.mat).all()
 
     def __ne__(self, other):
+        if self.size != other.size:
+            raise TypeError('sizes not equal')
+
         return not self.__eq__(other)
 
     def __mul__(self, other):

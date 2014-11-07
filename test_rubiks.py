@@ -23,6 +23,16 @@ class TestPermutation(unittest.TestCase):
         self.assertEqual(b, b)
         self.assertNotEqual(a, b)
 
+    def test_equals_raises_type_error(self):
+        a = Permutation(2)
+        b = Permutation(3)
+
+        with self.assertRaises(TypeError):
+            a == b
+
+        with self.assertRaises(TypeError):
+            a != b
+
     def test_multiply(self):
         a = Permutation(8, '(1 2)')
         b = Permutation(8, '(2 3)')
@@ -31,6 +41,13 @@ class TestPermutation(unittest.TestCase):
         self.assertEqual(a*b, Permutation(8, '(1 2 3)'))
         self.assertEqual(a*c, Permutation(8, '(1 3 2)'))
         self.assertEqual(b*c, Permutation(8, '(1 2 3)'))
+
+    def test_multiply_raises_type_error(self):
+        a = Permutation(2)
+        b = Permutation(3)
+
+        with self.assertRaises(TypeError):
+            a * b
 
     def test_power(self):
         a = Permutation(8, '(1 2 3)')
@@ -73,13 +90,6 @@ class TestPermutation(unittest.TestCase):
 
     def test_order(self):
         pass
-
-    def test_raises_type_error(self):
-        a = Permutation(2)
-        b = Permutation(3)
-
-        with self.assertRaises(TypeError):
-            a * b
 
     def test_of_out_of_bounds(self):
         pass
