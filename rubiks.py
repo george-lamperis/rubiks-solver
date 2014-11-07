@@ -96,6 +96,9 @@ class CornerOrientation():
     def __ne__(self, other):
         return not self.__eq__(other)
 
+    def __str__(self):
+        return str(self.x)
+
     def _manipulate(self, lst):
         """ (position, add) """
         l = []
@@ -111,13 +114,16 @@ class CornerOrientation():
         return CornerOrientation(t)
 
     def U(self):
-        pass
-
-    def L(self):
-        pass
+        # (x2, x3, x4, x1, x5, x6, x7, x8)
+        ops = [(2, 0), (3, 0), (4, 0), (1, 0), (5, 0), (6, 0), (7, 0), (8, 0)]
+        t = self._manipulate(ops)
+        return CornerOrientation(t)
 
     def R(self):
-        pass
+        # (x1, x7 + 1, x2 + 2, x4, x5, x6, x8 + 2, x3 + 1)
+        ops = [(1, 0), (7, 1), (2, 2), (4, 0), (5, 0), (6, 0), (8, 2), (3, 1)]
+        t = self._manipulate(ops)
+        return CornerOrientation(t)
 
     def F(self):
         pass
