@@ -51,8 +51,8 @@ class TestPermutation(unittest.TestCase):
                 self.assertEqual(a.of(i), i)
 
     def test_str(self):
-        # a = Permutation(8)
-        # self. assertEqual(a.__str__(), '(1)')
+        a = Permutation(8)
+        self. assertEqual(a.__str__(), '(1)')
 
         b = Permutation(8, '(3 2 1)')
         self.assertEqual(b.__str__(), '(1 3 2)')

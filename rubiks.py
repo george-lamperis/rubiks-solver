@@ -51,6 +51,9 @@ class Permutation:
 
     def __str__(self):
         """ ordered alphabetically. """
+        if self.is_identity():
+            return '(1)'
+
         s = ''
         domain = list(range(1, self.size+1))
         while domain:
