@@ -7,15 +7,13 @@ class Permutation:
     These permutations evaluate right to left, just like functions and matrices.
 
     TODO operators assert matching size
-         dtype = integer or bool maybe?
-         use matlib.identity instead
          make sure we make deep copies
     """
 
     def __init__(self, size, string=None):
         """ If string=None, return identity permutation. """
         self.size = size
-        self.mat = numpy.matlib.identity(self.size, numpy.dtype(int))
+        self.mat = numpy.matlib.identity(self.size)
 
         if string:
             cycles = string.replace('(', '').split(')')
@@ -28,7 +26,7 @@ class Permutation:
 
             # product of 2-cycles
             for i, j in swaps:
-                m = numpy.matlib.identity(self.size, numpy.dtype(int))
+                m = numpy.matlib.identity(self.size)
                 m[:, [i, j]] = m[:, [j, i]]
                 self.mat = self.mat * m
 

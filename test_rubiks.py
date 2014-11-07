@@ -7,7 +7,7 @@ from rubiks import CornerOrientation
 class TestPermutation(unittest.TestCase):
 
     def test_init(self):
-        mat = numpy.matrix.identity(8, numpy.dtype(int))
+        mat = numpy.matlib.identity(8)
         mat[:, [0, 1]] = mat[:, [1, 0]]
         mat[:, [1, 2]] = mat[:, [2, 1]]
         mat[:, [2, 3]] = mat[:, [3, 2]]
