@@ -1,4 +1,5 @@
 import numpy
+import numpy.matlib
 
 
 class Permutation:
@@ -14,7 +15,7 @@ class Permutation:
     def __init__(self, size, string=None):
         """ If string=None, return identity permutation. """
         self.size = size
-        self.mat = numpy.matrix(numpy.identity(self.size), numpy.dtype(int))
+        self.mat = numpy.matlib.identity(self.size, numpy.dtype(int))
 
         if string:
             cycles = string.replace('(', '').split(')')
@@ -27,7 +28,7 @@ class Permutation:
 
             # product of 2-cycles
             for i, j in swaps:
-                m = numpy.matrix(numpy.identity(self.size), numpy.dtype(int))
+                m = numpy.matlib.identity(self.size, numpy.dtype(int))
                 m[:, [i, j]] = m[:, [j, i]]
                 self.mat = self.mat * m
 
