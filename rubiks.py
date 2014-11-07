@@ -125,11 +125,23 @@ class CornerOrientation():
         t = self._manipulate(ops)
         return CornerOrientation(t)
 
+    def L(self):
+        # (x4 + 2, x2, x3, x5 + 1, x6 + 2, x1 + 1, x7, x8)
+        ops = [(4, 2), (2, 0), (3, 0), (5, 1), (6, 2), (1, 1), (7, 0), (8, 0)]
+        t = self._manipulate(ops)
+        return CornerOrientation(t)
+
     def F(self):
-        pass
+        # (x6 + 1, x1 + 2, x3, x4, x5 , x7 + 2, x2 + 1, x8)
+        ops = [(6, 1), (1, 2), (3, 0), (4, 0), (5, 0), (7, 2), (2, 1), (8, 0)]
+        t = self._manipulate(ops)
+        return CornerOrientation(t)
 
     def B(self):
-        pass
+        # (x1, x2, x8 + 1, x3 + 2, x4 + 1, x6, x7, x5 + 2)
+        ops = [(1, 0), (2, 0), (8, 1), (3, 2), (4, 1), (6, 0), (7, 0), (5, 2)]
+        t = self._manipulate(ops)
+        return CornerOrientation(t)
 
 class EdgeOrientation():
 

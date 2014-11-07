@@ -103,3 +103,18 @@ class TestCornerOrientation(unittest.TestCase):
         actual = CornerOrientation((0, 1, 2, 0, 1, 2, 0, 1)).R()
         expected = CornerOrientation((0, 1, 0, 0, 1, 2, 0, 0))
         self.assertEqual(actual, expected)
+
+    def test_L(self):
+        actual = CornerOrientation((0, 1, 2, 0, 1, 2, 0, 1)).L()
+        expected = CornerOrientation((2, 1, 2, 2, 1, 1, 0, 1))
+        self.assertEqual(actual, expected)
+
+    def test_F(self):
+        actual = CornerOrientation((0, 1, 2, 0, 1, 2, 0, 1)).F()
+        expected = CornerOrientation((0, 2, 2, 0, 1, 2, 2, 1))
+        self.assertEqual(actual, expected)
+
+    def test_B(self):
+        actual = CornerOrientation((0, 1, 2, 0, 1, 2, 0, 1)).B()
+        expected = CornerOrientation((0, 1, 2, 1, 1, 2, 0, 0))
+        self.assertEqual(actual, expected)
