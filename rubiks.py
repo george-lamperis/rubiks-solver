@@ -87,10 +87,59 @@ class Permutation:
     def inverse(self):
         return self ** -1
 
+class CornerOrientation():
 
-class S12:
-    corners =['ufl', 'urf', 'ubr', 'ulb', 'dbl', 'dlf', 'dfr', 'drb']
-    edges = ['ub', 'ur', 'uf', 'ul', 'lb', 'rb', 'rf', 'lf', 'db', 'dr', 'df', 'dl']
+    def __init__(x=None):
+        """ x should be an 8-tuple with elements in Z/3. """
+        if x:
+            self.x = x
+        else:
+            self.x = (0, 0, 0, 0, 0, 0, 0, 0)
+
+    def D(self):
+        pass
+
+    def U(self):
+        pass
+
+    def L(self):
+        pass
+
+    def R(self):
+        pass
+
+    def F(self):
+        pass
+
+    def B(self):
+        pass
+
+class EdgeOrientation():
+
+    def __init__(y=None):
+        """ y should be an 12-tuple with elements in Z/2. """
+        if y:
+            self.y = y
+        else:
+            self.y = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+    def D(self):
+        pass
+
+    def U(self):
+        pass
+
+    def L(self):
+        pass
+
+    def R(self):
+        pass
+
+    def F(self):
+        pass
+
+    def B(self):
+        pass
 
 class State:
 
