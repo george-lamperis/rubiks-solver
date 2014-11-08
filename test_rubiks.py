@@ -67,6 +67,12 @@ class TestPermutation(unittest.TestCase):
             with self.subTest(i=i):
                 self.assertEqual(a.of(i), i)
 
+        with self.assertRaises(AssertionError):
+            a.of(0)
+
+        with self.assertRaises(AssertionError):
+            a.of(9)
+
     def test_str(self):
         a = Permutation(8)
         self. assertEqual(a.__str__(), '(1)')
@@ -91,8 +97,6 @@ class TestPermutation(unittest.TestCase):
     def test_order(self):
         pass
 
-    def test_of_out_of_bounds(self):
-        pass
 
 class TestCornerOrientation(unittest.TestCase):
 

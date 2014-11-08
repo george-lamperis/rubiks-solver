@@ -79,8 +79,11 @@ class Permutation:
         return s
 
     def of(self, n):
-        for i, x in enumerate(self.mat[:, n-1].flat, start=1):
-            if x:
+        assert(1 <= n <= self.size)
+
+        # iterate over the nth column until we find 1
+        for i, entry in enumerate(self.mat[:, n-1].flat, start=1):
+            if entry:
                 return i
 
     def is_identity(self):
