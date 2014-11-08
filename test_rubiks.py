@@ -95,7 +95,11 @@ class TestPermutation(unittest.TestCase):
         self.assertEqual(Permutation(8, '(1 2)').inverse(), Permutation(8, '(1 2)'))
 
     def test_order(self):
-        pass
+        a = Permutation(8)
+        self.assertEqual(a.order(), 1)
+
+        b = Permutation(8, '(1 2 3 4 5 6)')
+        self.assertEqual(b.order(), 6)
 
 
 class TestCornerOrientation(unittest.TestCase):

@@ -92,6 +92,15 @@ class Permutation:
     def inverse(self):
         return self ** -1
 
+    def order(self):
+        p = self
+        n = 1
+        while not p.is_identity():
+            n += 1
+            p = p * self
+
+        return n
+
 class CornerOrientation():
 
     def __init__(self, x=None):
