@@ -5,9 +5,6 @@ import numpy.matlib
 class Permutation:
     """
     These permutations evaluate right to left, just like functions and matrices.
-
-    TODO operators assert matching size
-         make sure we make deep copies
     """
 
     def __init__(self, size, string=None):
@@ -100,6 +97,28 @@ class Permutation:
             p = p * self
 
         return n
+
+class CornerPosition(Permutation):
+
+    symbols = {
+        1:'ufl', 'ufl':1,
+        2:'urf', 'urf':2,
+        3:'ubr', 'ubr':3,
+        4:'ulb', 'ulb':4,
+        5:'dbl', 'dbl':5,
+        6:'dlf', 'dlf':6,
+        7:'dfr', 'dfr':7,
+        8:'drb', 'drb':8
+    }
+
+    def __init__(self):
+        pass
+
+    def __str__(self):
+        pass
+
+    def of(self, n):
+        pass
 
 class CornerOrientation():
 
