@@ -184,15 +184,36 @@ class CornerOrientation():
 
 class EdgeOrientation():
 
-    def __init__(y=None):
+    def __init__(self, y=None):
         """ y should be an 12-tuple with elements in Z/2. """
         if y:
             self.y = y
         else:
             self.y = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
+    def __eq__(self, other):
+        return self.y == other.y
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __str__(self):
+        return str(self.y)
+
+    def _manipulate(self, lst):
+        """ (position, add) """
+        l = []
+        for i, addend in lst:
+           l.append((self.y[i-1] + addend) % 2)
+
+        return tuple(l)
+
     def D(self):
-        pass
+        # (y1, y2, y3, y4, y5, y6, y7, y8, y10, y11, y12, y9)
+        ops = [(1, 0), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0), (7, 0), (8, 0),
+               (10, 0), (11, 0), (12, 0), (9, 0)]
+        t = self._manipulate(ops)
+        return EdgeOrientation(t)
 
     def U(self):
         pass

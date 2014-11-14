@@ -3,6 +3,7 @@ import numpy
 
 from rubiks import Permutation
 from rubiks import CornerOrientation
+from rubiks import EdgeOrientation
 
 class TestPermutation(unittest.TestCase):
 
@@ -136,3 +137,14 @@ class TestCornerOrientation(unittest.TestCase):
         actual = CornerOrientation((0, 1, 2, 0, 1, 2, 0, 1)).B()
         expected = CornerOrientation((0, 1, 2, 1, 1, 2, 0, 0))
         self.assertEqual(actual, expected)
+
+class TestEdgeOrientation(unittest.TestCase):
+
+    def test_init(self):
+        pass
+
+    def test_D(self):
+        actual = EdgeOrientation((0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1)).D()
+        expected = EdgeOrientation((0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0))
+        self.assertEqual(actual, expected)
+
