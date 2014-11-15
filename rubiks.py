@@ -216,19 +216,39 @@ class EdgeOrientation():
         return EdgeOrientation(t)
 
     def U(self):
-        pass
-
-    def L(self):
-        pass
+        # (y4, y1, y2, y3, y5, y6, y7, y8, y9, y10, y11, y12)
+        ops = [(4, 0), (1, 0), (2, 0), (3, 0), (5, 0), (6, 0), (7, 0), (8, 0),
+               (9, 0), (10, 0), (11, 0), (12, 0)]
+        t = self._manipulate(ops)
+        return EdgeOrientation(t)
 
     def R(self):
-        pass
+        # (y1, y7, y3, y4, y5, y2, y10, y8, y9, y6, y11, y12)
+        ops = [(1, 0), (7, 0), (3, 0), (4, 0), (5, 0), (2, 0), (10, 0), (8, 0),
+               (9, 0), (6, 0), (11, 0), (12, 0)]
+        t = self._manipulate(ops)
+        return EdgeOrientation(t)
+
+    def L(self):
+        # (y1, y2, y3, y5, y12, y6, y7, y4, y9, y10, y11, y8)
+        ops = [(1, 0), (2, 0), (3, 0), (5, 0), (12, 0), (6, 0), (7, 0), (4, 0),
+               (9, 0), (10, 0), (11, 0), (8, 0)]
+        t = self._manipulate(ops)
+        return EdgeOrientation(t)
 
     def F(self):
-        pass
+        # (y1, y2, y8 + 1, y4, y5, y6, y3 + 1, y11 + 1, y9, y10, y7 + 1, y12)
+        ops = [(1, 0), (2, 0), (8, 1), (4, 0), (5, 0), (6, 0), (3, 1), (11, 1),
+               (9, 0), (10, 0), (7, 1), (12, 0)]
+        t = self._manipulate(ops)
+        return EdgeOrientation(t)
 
     def B(self):
-        pass
+        # (y6 + 1, y2, y3, y4, y1 + 1, y9 + 1, y7, y8, y5 + 1, y10, y11, y12)
+        ops = [(6, 1), (2, 0), (3, 0), (4, 0), (1, 1), (9, 1), (7, 0), (8, 0),
+               (5, 1), (10, 0), (11, 0), (12, 0)]
+        t = self._manipulate(ops)
+        return EdgeOrientation(t)
 
 class State:
     # How will we represent the rotation of the cube? (Colors)

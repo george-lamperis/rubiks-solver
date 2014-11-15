@@ -148,3 +148,27 @@ class TestEdgeOrientation(unittest.TestCase):
         expected = EdgeOrientation((0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0))
         self.assertEqual(actual, expected)
 
+    def test_U(self):
+        actual = EdgeOrientation((0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1)).U()
+        expected = EdgeOrientation((1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1))
+        self.assertEqual(actual, expected)
+
+    def test_R(self):
+        actual = EdgeOrientation((0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1)).R()
+        expected = EdgeOrientation((0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1))
+        self.assertEqual(actual, expected)
+
+    def test_L(self):
+        actual = EdgeOrientation((0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1)).L()
+        expected = EdgeOrientation((0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1))
+        self.assertEqual(actual, expected)
+
+    def test_F(self):
+        actual = EdgeOrientation((0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1)).F()
+        expected = EdgeOrientation((0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1))
+        self.assertEqual(actual, expected)
+
+    def test_B(self):
+        actual = EdgeOrientation((0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1)).B()
+        expected = EdgeOrientation((0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1))
+        self.assertEqual(actual, expected)
