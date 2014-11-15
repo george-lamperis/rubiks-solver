@@ -102,11 +102,7 @@ class TestPermutation(unittest.TestCase):
         b = Permutation(8, '(1 2 3 4 5 6)')
         self.assertEqual(b.order(), 6)
 
-
 class TestCornerOrientation(unittest.TestCase):
-
-    def test_init(self):
-        pass
 
     def test_D(self):
         actual = CornerOrientation((0, 0, 0, 0, 1, 2, 1, 0)).D()
@@ -139,9 +135,6 @@ class TestCornerOrientation(unittest.TestCase):
         self.assertEqual(actual, expected)
 
 class TestEdgeOrientation(unittest.TestCase):
-
-    def test_init(self):
-        pass
 
     def test_D(self):
         actual = EdgeOrientation((0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1)).D()
